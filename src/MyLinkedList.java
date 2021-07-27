@@ -1,90 +1,91 @@
 
 public class MyLinkedList {
-	 private INode head;
-	    private INode tail;
-	    private  int size;
+	public INode head;
 
-	    public MyLinkedList() {
-	        this.head = null;
-	        this.tail = null;
-	    }
+    private INode tail;
+    private  int size;
 
-	    public void add(INode node) {
-	        if (this.head == null) {
-	            this.head = node;
-	        }
-	        if (this.tail == null) {
-	            this.tail = node;
-	        } else {
-	            INode temp = head;
-	            this.head = node;
-	            this.head.setNext(temp);
+    public MyLinkedList() {
+        this.head = null;
+        this.tail = null;
+    }
 
-	        }
-	    }
+    public void add(INode node) {
+        if (this.head == null) {
+            this.head = node;
+        }
+        if (this.tail == null) {
+            this.tail = node;
+        } else {
+            INode temp = head;
+            this.head = node;
+            this.head.setNext(temp);
 
-	    public void printNodes() {
-	        StringBuilder nodes = new StringBuilder("Node Keys");
-	        INode temp = this.head;
-	        while (temp != null) {
-	            nodes.append(temp.getKey());
-	            if (temp != tail) {
-	                nodes.append("->");
+        }
+    }
 
-	            }
-	            temp = temp.getNext();
+    public void printNodes() {
+        StringBuilder nodes = new StringBuilder("Node Keys");
+        INode temp = this.head;
+        while (temp != null) {
+            nodes.append(temp.getKey());
+            if (temp != tail) {
+                nodes.append("->");
 
-	        }
-	        System.out.println(nodes);
-	    }
+            }
+            temp = temp.getNext();
 
-	    public INode pop() {
-	        INode temp = this.head;
+        }
+        System.out.println(nodes);
+    }
 
-	        this.head = head.getNext();
+    public INode pop() {
+        INode temp = this.head;
 
-	        size--;
+        this.head = head.getNext();
 
-	        return temp;
+        size--;
 
-	    }
-	    public INode popLast() {
+        return temp;
 
-	        INode temp = this.head;
+    }
+    public INode popLast() {
 
-	        while (temp.getNext() != this.tail) {
+        INode temp = this.head;
 
-	            temp = temp.getNext();
+        while (temp.getNext() != this.tail) {
 
-	        }
+            temp = temp.getNext();
 
-	        this.tail = temp;
+        }
 
-	        temp = temp.getNext();
+        this.tail = temp;
 
-	        size--;
+        temp = temp.getNext();
 
-	        return temp;
+        size--;
 
-	    }
-	    public INode search(INode key) {
-	        INode temp = this.head;
+        return temp;
 
-	        while (temp != null && temp.getNext() != null) {
+    }
+    public INode search(INode key) {
+        INode temp = this.head;
 
-	            if (temp.getKey().equals(key)) {
+        while (temp != null && temp.getNext() != null) {
 
-	                return temp;
+            if (temp.getKey().equals(key)) {
 
-	            }
+                return temp;
 
-	        }
+            }
 
-	        return null;
-	    }
-	    public int size() {
+        }
 
-	        return this.size;
+        return null;
+    }
+    public int size() {
 
-	    }
+        return this.size;
+
+    }
 }
